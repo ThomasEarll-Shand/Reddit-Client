@@ -1,0 +1,31 @@
+.subreddit-list {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  height: fit-content;
+}
+
+.subreddit-list h2 {
+  margin-top: 0;
+}
+
+.subreddit-list button {
+  display: block;
+  width: 100%;
+
+  padding: 12px;
+  margin-bottom: 8px;
+
+  background: none;
+  border: none;
+  border-radius: 6px;
+
+  text-align: left;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.subreddit-list button:hover {
+  background-color: #f2f2f2;
+}

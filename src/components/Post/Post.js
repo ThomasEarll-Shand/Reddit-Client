@@ -1,13 +1,16 @@
 import React from 'react';
 import './Post.css';
+import { useDispatch } from 'react-redux';
+import { upvotePost, downvotePost } from '../../features/posts/postsSlice';
 
-function Post({ title, body, author, votes, comments }) {
+function Post({ id, title, body, author, votes, comments }) {
+    const dispatch = useDispatch();
   return (
     <article className="post">
       <div className="post-votes">
-        <button>▲</button>
+        <button onClick={() => dispatch(upvotePost(id))}>▲</button>
         <p>{votes}</p>
-        <button>▼</button>
+        <button onClick={() => dispatch(downvotePost(id))}>▼</button>
       </div>
 
       <div className="post-content">
