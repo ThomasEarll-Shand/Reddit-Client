@@ -29,3 +29,9 @@
 .subreddit-list button:hover {
   background-color: #f2f2f2;
 }
+
+.subreddit-list button.active {
+  background-color: #eeeeff;
+  font-weight: bold;
+  color: #4f46e5;
+}

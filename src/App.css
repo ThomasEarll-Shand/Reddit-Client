@@ -17,3 +17,15 @@ main {
     grid-template-columns: 1fr;
   }
 }
+
+.status-message {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.error-message {
+  font-weight: bold;
+}

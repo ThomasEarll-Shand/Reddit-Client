@@ -3,7 +3,7 @@ import './Post.css';
 import { useDispatch } from 'react-redux';
 import { upvotePost, downvotePost } from '../../features/posts/postsSlice';
 
-function Post({ id, title, body, author, votes, comments }) {
+function Post({ id, title, body, author, votes, comments, subreddit }) {
     const dispatch = useDispatch();
   return (
     <article className="post">
@@ -14,6 +14,7 @@ function Post({ id, title, body, author, votes, comments }) {
       </div>
 
       <div className="post-content">
+        <p className="post-subreddit">r/{subreddit}</p>
         <h2>{title}</h2>
         <p>{body}</p>
 

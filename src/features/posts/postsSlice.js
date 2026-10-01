@@ -1,37 +1,38 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const initialState = {
-  posts: [
-    {
-      id: 1,
-      title: 'My first Reddit post',
-      body: 'This is some fake data while I build the app.',
-      author: 'exampleUser',
-      votes: 125,
-      comments: 12,
-    },
-    {
-      id: 2,
-      title: 'Learning React is starting to make sense',
-      body: 'Reusable components are pretty useful!',
-      author: 'reactLearner',
-      votes: 347,
-      comments: 28,
-    },
-    {
-      id: 3,
-      title: 'What is everyone building today?',
-      body: 'Share your current projects!',
-      author: 'webDeveloper',
-      votes: 89,
-      comments: 41,
-    },
-  ],
+  posts: [],
+    isLoading: false,
+    hasError: false,
 };
+
+export const fetchPosts = createAsyncThunk(
+  'posts/fetchPosts',
+  async () => {
+    const response = await fetch('/mockPosts.json');
+
+    if (!response.ok) {
+      throw new Error('Failed to fetch posts');
+    }
+
+    const data = await response.json();
+
+    return data.data.children.map((post) => ({
+  id: post.data.id,
+  title: post.data.title,
+  body: post.data.selftext,
+  author: post.data.author,
+  votes: post.data.score,
+  comments: post.data.num_comments,
+  subreddit: post.data.subreddit,
+}));
+  }
+);
 
 const postsSlice = createSlice({
   name: 'posts',
   initialState,
+
   reducers: {
   upvotePost: (state, action) => {
     const post = state.posts.find(
@@ -52,7 +53,25 @@ const postsSlice = createSlice({
       post.votes -= 1;
     }
   },
-}
+},
+
+extraReducers: (builder) => {
+    builder
+      .addCase(fetchPosts.pending, (state) => {
+        state.isLoading = true;
+        state.hasError = false;
+      })
+
+      .addCase(fetchPosts.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.posts = action.payload;
+      })
+
+      .addCase(fetchPosts.rejected, (state) => {
+        state.isLoading = false;
+        state.hasError = true;
+      });
+  },
 });
 
 export const { upvotePost, downvotePost } = postsSlice.actions;
