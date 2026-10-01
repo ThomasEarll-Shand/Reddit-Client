@@ -24,7 +24,9 @@ export const fetchPosts = createAsyncThunk(
   author: post.data.author,
   votes: post.data.score,
   comments: post.data.num_comments,
+  commentData: post.data.comments || [],
   subreddit: post.data.subreddit,
+  image: post.data.image,
 }));
   }
 );

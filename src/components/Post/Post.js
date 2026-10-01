@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Post.css';
 import { useDispatch } from 'react-redux';
 import { upvotePost, downvotePost } from '../../features/posts/postsSlice';
 
-function Post({ id, title, body, author, votes, comments, subreddit }) {
+function Post({ id, title, body, author, votes, comments, commentData, subreddit, image }) {
     const dispatch = useDispatch();
+    const [showComments, setShowComments] = useState(false);
   return (
     <article className="post">
       <div className="post-votes">
@@ -18,10 +19,40 @@ function Post({ id, title, body, author, votes, comments, subreddit }) {
         <h2>{title}</h2>
         <p>{body}</p>
 
+        {image && <img className="post-image" src={image} alt={title} />}
+
         <div className="post-details">
           <span>Posted by {author}</span>
-          <span>💬 {comments} comments</span>
+          <span>
+            <button className="comments-button" onClick={() => setShowComments(!showComments)}>
+                💬 {comments} comments
+            </button>
+          </span>
         </div>
+
+        {showComments && (
+  <div className="comments-section">
+    {commentData.length > 0 ? (
+      commentData.map((comment) => (
+        <div className="comment" key={comment.id}>
+          <p className="comment-author">
+            {comment.author}
+          </p>
+
+          <p>{comment.body}</p>
+        </div>
+      ))
+    ) : (
+      <p className="no-comments">
+        No comments to display.
+      </p>
+    )}
+  </div>
+)}
+
+
+
+
       </div>
     </article>
   );

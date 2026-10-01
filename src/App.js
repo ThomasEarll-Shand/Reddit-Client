@@ -64,7 +64,9 @@ function App() {
       author={post.author}
       votes={post.votes}
       comments={post.comments}
+      commentData={post.commentData}
       subreddit={post.subreddit}
+      image={post.image}
     />
   ))}
 </main>
