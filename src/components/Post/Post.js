@@ -3,15 +3,15 @@ import './Post.css';
 import { useDispatch } from 'react-redux';
 import { upvotePost, downvotePost } from '../../features/posts/postsSlice';
 
-function Post({ id, title, body, author, votes, comments, commentData, subreddit, image }) {
+function Post({ id, title, body, author, votes, comments, commentData, subreddit, image, onPostClick }) {
     const dispatch = useDispatch();
     const [showComments, setShowComments] = useState(false);
   return (
-    <article className="post">
+    <article className="post" onClick={onPostClick}>
       <div className="post-votes">
-        <button onClick={() => dispatch(upvotePost(id))}>▲</button>
+        <button onClick={(event) => {event.stopPropagation(); dispatch(upvotePost(id));}}>▲</button>
         <p>{votes}</p>
-        <button onClick={() => dispatch(downvotePost(id))}>▼</button>
+        <button onClick={(event) => {event.stopPropagation(); dispatch(downvotePost(id));}}>▼</button>
       </div>
 
       <div className="post-content">
@@ -24,7 +24,7 @@ function Post({ id, title, body, author, votes, comments, commentData, subreddit
         <div className="post-details">
           <span>Posted by {author}</span>
           <span>
-            <button className="comments-button" onClick={() => setShowComments(!showComments)}>
+            <button className="comments-button" onClick={(event) => {event.stopPropagation(); setShowComments(!showComments);}}>
                 💬 {comments} comments
             </button>
           </span>
@@ -49,10 +49,6 @@ function Post({ id, title, body, author, votes, comments, commentData, subreddit
     )}
   </div>
 )}
-
-
-
-
       </div>
     </article>
   );
