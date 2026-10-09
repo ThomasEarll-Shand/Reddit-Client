@@ -9,7 +9,7 @@ const initialState = {
 export const fetchPosts = createAsyncThunk(
   'posts/fetchPosts',
   async () => {
-    const response = await fetch('/mockPosts.json');
+    const response = await fetch('/Reddit-Client/mockPosts.json');
 
     if (!response.ok) {
       throw new Error('Failed to fetch posts');
