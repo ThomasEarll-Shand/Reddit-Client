@@ -1,46 +1,138 @@
-# Getting Started with Create React App and Redux
+# RedditMinimal
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+RedditMinimal is a responsive Reddit-style web application built with React and Redux. It allows users to browse posts, search for content, filter posts by subreddit, vote on posts, view comments, and open posts in a detailed modal view.
 
-## Available Scripts
+This project was created as part of the Codecademy Full Stack Engineer portfolio project.
 
-In the project directory, you can run:
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Browse a feed of Reddit-style posts
+- Search posts by keyword
+- Filter posts by subreddit
+- Upvote and downvote posts
+- View comments on posts
+- Open posts in a detailed modal
+- Loading and error states
+- Retry after a data-loading error
+- Responsive layout for desktop, tablet, and mobile devices
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technologies Used
 
-### `npm test`
+- React
+- Redux Toolkit
+- React Redux
+- JavaScript
+- HTML
+- CSS
+- Jest
+- React Testing Library
+- Playwright
+- Git
+- GitHub
+- GitHub Projects
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Testing
 
-### `npm run build`
+The application includes both unit tests and end-to-end tests.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Unit Testing
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Unit and component tests are written using Jest and React Testing Library.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The test suite covers:
 
-### `npm run eject`
+- Rendering the search bar
+- Updating the search term when a user types
+- Rendering and selecting subreddits
+- Rendering post details
+- Upvoting and downvoting posts through Redux
+- Rendering the post modal
+- Closing the post modal
+- Displaying comments in the post modal
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The project currently has 10 passing unit tests.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+React Testing Library was used instead of Enzyme because the project uses React 19, which is not properly supported by Enzyme. React Testing Library provides a modern approach to testing React components by testing behaviour from the user's perspective.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### End-to-End Testing 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Playwright is used for end-to-end testing.
 
-## Learn More
+The end-to-end tests cover:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Loading the application and displaying content
+- Searching for posts
+- Filtering posts by subreddit
+- Opening and closing the detailed post modal
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The project currently has 4 passing end-to-end tests.
+
+Unit tests can be run with:
+
+```bash
+npm test
+```
+
+## Reddit API and Data
+
+The application is structured around Reddit-style post data.
+
+During development, an attempt was made to retrieve data directly from Reddit's unauthenticated JSON endpoints. However, the requests returned HTTP 403/CORS errors in the browser.
+
+To keep the application functional and demonstrate the complete data flow, the project currently uses local mock data stored in `public/mockPosts.json`. The mock data follows a Reddit-style structure and is loaded asynchronously through Redux.
+
+Using live Reddit data could be added in the future if a suitable supported API integration is available.
+
+## Future Work
+
+Future improvements to RedditMinimal could include:
+
+- Integration with a supported live Reddit API
+- Live Reddit comments and subreddit data
+- User authentication
+- Persistent voting
+- Additional sorting options such as hot, new, and top posts
+- Improved accessibility features
+- Additional animations and interface polish
+
+## Wireframes
+
+The wireframe below shows the planned layout for RedditMinimal on desktop and mobile devices. The desktop design uses a two-column layout with the post feed alongside subreddit navigation, while the mobile design stacks the content into a single column.
+
+![RedditMinimal desktop and mobile wireframe](wireframes/redditminimal-wireframe.png)
+
+## Running the Project Locally
+
+To run RedditMinimal locally, clone the repository and install the project dependencies.
+
+```bash
+git clone https://github.com/ThomasEarll-Shand/Reddit-Client.git
+cd reddit-client
+npm install
+npm start
+```
+
+The application will then run locally at `http://localhost:3000`.
+
+### Running Unit Tests
+
+Run the Jest test suite with:
+
+```bash
+npm test
+```
+
+### Running End-to-End Tests
+
+Start the application:
+
+```bash
+npm start
+```
+
+Then, in a second terminal, run the Playwright tests:
+
+```bash
+npx playwright test
+```
