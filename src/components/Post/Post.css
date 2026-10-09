@@ -5,8 +5,14 @@
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-
   overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
 .post-votes {
@@ -54,7 +60,7 @@
   margin-top: 20px;
   padding-top: 12px;
   border-top: 1px solid #eee;
-  color: #777;
+  color: #555;
   font-size: 14px;
 }
 
@@ -136,15 +142,5 @@
 }
 
 .no-comments {
-  color: #777;
-}
-
-.post {
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.post:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  color: #555;
 }

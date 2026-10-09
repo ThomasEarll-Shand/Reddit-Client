@@ -4,6 +4,11 @@ RedditMinimal is a responsive Reddit-style web application built with React and 
 
 This project was created as part of the Codecademy Full Stack Engineer portfolio project.
 
+## Live Demo
+
+The deployed application is available through GitHub Pages.
+https://thomasearll-shand.github.io/Reddit-Client/
+
 
 ## Features
 
@@ -35,6 +40,21 @@ This project was created as part of the Codecademy Full Stack Engineer portfolio
 ## Testing
 
 The application includes both unit tests and end-to-end tests.
+
+Cross-browser testing was performed with Playwright across Chromium, Firefox, and WebKit, with all 12 tests passing.
+
+### Lighthouse
+
+The deployed application was audited using Google Lighthouse.
+
+Desktop scores:
+
+- Performance: 96
+- Accessibility: 100
+- Best Practices: 100
+- SEO: 100
+
+All Lighthouse categories achieved a score above 90.
 
 ### Unit Testing
 
