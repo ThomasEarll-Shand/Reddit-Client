@@ -1,0 +1,85 @@
+{
+  "data": {
+    "children": [
+      {
+        "data": {
+          "id": "1",
+          "title": "My first Reddit post",
+          "selftext": "This post is coming from our mock JSON API.",
+          "author": "exampleUser",
+          "score": 125,
+          "num_comments": 12,
+          "comments": [
+            {
+                "id": "c1",
+                "author": "reactFan",
+                "body": "This project is looking good!"
+            },
+            {
+                "id": "c2",
+                "author": "javascriptDev",
+                "body": "Redux gets much easier once you start using it."
+            }
+          ],
+          "subreddit": "popular",
+          "image": "https://picsum.photos/800/500?random=1"
+        }
+      },
+      {
+        "data": {
+          "id": "2",
+          "title": "Learning React and Redux",
+          "selftext": "Redux is starting to make more sense!",
+          "author": "reactLearner",
+          "score": 347,
+          "num_comments": 28,
+          "comments": [
+            {
+                "id": "c3",
+                "author": "reduxLearner",
+                "body": "I'm learning Redux at the moment too."
+            }
+          ],
+          "subreddit": "reactjs"
+        }
+      },
+      {
+        "data": {
+          "id": "3",
+          "title": "What is everyone building today?",
+          "selftext": "Share your current programming projects.",
+          "author": "webDeveloper",
+          "score": 89,
+          "num_comments": 41,
+          "comments": [],
+          "subreddit": "webdev",
+          "image": "https://picsum.photos/800/500?random=2"
+        }
+      },
+      {
+        "data": {
+          "id": "4",
+          "title": "Useful JavaScript array methods",
+          "selftext": "Map, filter and reduce are incredibly useful.",
+          "author": "javascriptFan",
+          "score": 203,
+          "num_comments": 35,
+          "comments": [],
+          "subreddit": "javascript"
+        }
+      },
+      {
+        "data": {
+          "id": "5",
+          "title": "What programming language are you learning?",
+          "selftext": "I'm interested to see what everyone is currently studying.",
+          "author": "codeStudent",
+          "score": 156,
+          "num_comments": 63,
+          "comments": [],
+          "subreddit": "programming"
+        }
+      }
+    ]
+  }
+}
